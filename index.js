@@ -1,5 +1,4 @@
 const express = require('express');
-const crypto = require('crypto');
 const path = require('path');
 const fs = require('fs');
 
@@ -17,4 +16,4 @@ fs.readdirSync(routesPath).forEach(file => {
 
 app.listen(80, () => {
     console.log('Server is running on port 80');
-})
+});
