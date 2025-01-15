@@ -15,6 +15,10 @@ This is a simple Cryptography API built with Node.js and Express. It provides va
   - [POST /hmac](#post-hmac)
   - [POST /aes/encrypt](#post-aesencrypt)
   - [POST /aes/decrypt](#post-aesdecrypt)
+  - [POST /pgp/encrypt](#post-pgpencrypt)
+  - [POST /pgp/decrypt](#post-pgpdecrypt)
+  - [POST /pgp/sign](#post-pgpsign)
+  - [POST /pgp/verify](#post-pgpverify)
 - [License](#license)
 
 ## Installation
@@ -112,5 +116,51 @@ Decrypts a message encrypted with AES-256-CBC.
     "encrypted": "encrypted string",
     "key": "key in hex",
     "iv": "iv in hex"
+}
+```
+
+### POST /pgp/encrypt
+Encrypts a message with OpenPGP.
+
+**Request Body:**
+```json
+{
+    "message": "string",
+    "publicKey": "public key"
+}
+```
+
+### POST /pgp/decrypt
+Decrypts a message with OpenPGP.
+
+**Request Body:**
+```json
+{
+    "message": "encrypted string",
+    "privateKey": "private key",
+    "passphrase": "passphrase"
+}
+```
+
+### POST /pgp/sign
+Sign a message with OpenPGP.
+
+**Request Body:**
+```json
+{
+    "message": "string",
+    "privateKey": "private key",
+    "passphrase": "passphrase"
+}
+```
+
+### POST /pgp/verify
+Verify a message with OpenPGP.
+
+**Request Body:**
+```json
+{
+    "message": "signed string",
+    "publicKey": "public key"
 }
 ```
