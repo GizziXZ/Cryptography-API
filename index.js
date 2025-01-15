@@ -1,8 +1,9 @@
 const express = require('express');
 const path = require('path');
 const fs = require('fs');
-
 const app = express();
+const port = 80;
+
 app.use(express.json());
 
 // Load all routes
@@ -18,6 +19,7 @@ app.get('/', (req, res) => {
     res.redirect('https://github.com/GizziXZ/Cryptography-API'); // the github repo
 });
 
-app.listen(80, () => {
-    console.log('Server is running on port 80');
+
+app.listen(port, () => {
+    console.log('Server is running on port ' + port);
 });
