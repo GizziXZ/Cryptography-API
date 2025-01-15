@@ -14,6 +14,10 @@ fs.readdirSync(routesPath).forEach(file => {
     }
 });
 
+app.get('/', (req, res) => {
+    res.redirect('https://github.com/GizziXZ/Cryptography-API'); // the github repo
+});
+
 app.listen(80, () => {
     console.log('Server is running on port 80');
 });
